@@ -1,38 +1,166 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app{
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  /*background-color: #F8F9F9;*/
+
+  background-size: cover;
+  background-image: url('https://ak.picdn.net/shutterstock/videos/6282221/thumb/1.jpg');
 }
 
-.App-link {
-  color: #61dafb;
+.app-title {
+  font-size: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 1.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.shape-bundle {
+  /*margin-top: 4em;*/
+}
+
+.shapes-list {
+  list-style: none;
+  display: flex;
+}
+
+.shapes-list li {
+  padding: 0.25em 1em;
+  margin-right: 0.25em;
+
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.calculator {
+  background-color:#F4D03F;
+  width: 400px;
+
+  padding: 1em 2em;
+
+  box-shadow: 15px 13px 5px -10px rgba(106,106,106,0.44);
+}
+
+.shape-info {
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+}
+
+.txt {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  
+  font-family: "Raleway", sans-serif;
+  padding: 0.75em 0em;
+}
+
+
+
+.label {
+	font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+	font-family: "Raleway", sans-serif;
+  padding-bottom: 0.3em;
+  
+  font-weight: 700;
+}
+
+.label-2 {
+	font-size: 0.75rem;
+  letter-spacing: 3px;
+  
+	font-family: "Raleway", sans-serif;
+  padding-bottom: 0.3em;
+  
+  font-weight: 700;
+}
+
+.item {
+	padding-bottom: 1.3em;
+}
+
+.wide-item {
+  width: 100%;
+  
+}
+
+.btn-item {
+	text-align: center;
+}
+
+.btn-calculate {
+  margin-bottom: 1.3em;
+	padding: 0.8em 2.5em;
+	font-size: 1.1rem;
+	letter-spacing: 3px;
+	font-family: "Raleway", sans-serif;
+	font-weight: 500;
+	border-radius: 4px;
+	text-transform: uppercase;
+	border: 2px solid gray;
+
+	color: gray;
+	background-color: white;
+}
+
+input {
+	height: 35px;
+	padding: 7px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.two {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-two {
+  padding-bottom: 1.3em;
+  width: calc(50% - 10px);
+}
+
+.three {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-three {
+  flex-wrap: wrap;
+  padding-bottom: 1.3em;
+  width: calc(33% - 10px);
+}
+
+@media screen and (max-width: 550px) {
+  .app {
+    padding: 0em 1em;
   }
-  to {
-    transform: rotate(360deg);
+
+  
+  .calculator{
+    width: auto;
   }
 }
