@@ -14,7 +14,7 @@ class Square extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:5000/squares', {
+        axios.post('http://40.74.251.65:5000/squares', {
             a: this.state.a,
             b: this.state.b
         }).then((res) => {

@@ -13,7 +13,7 @@ class Circle extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:5000/circles', {
+        axios.post('http://40.74.251.65:5000/circles', {
             radio: this.state.radio
         }).then((res) => {
             this.setState({
