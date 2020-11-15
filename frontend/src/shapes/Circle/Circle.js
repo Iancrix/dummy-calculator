@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import "../../App.css";
 
+import axios from "axios";
+
 class Circle extends Component {
     state = {
         perimetro: "",
@@ -11,10 +13,23 @@ class Circle extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
+        axios.post('http://localhost:5000/circles', {
+            radio: this.state.radio
+        }).then((res) => {
+            this.setState({
+                perimetro: res.data.perimeter,
+                area: res.data.area
+            })
+        }, (error) => {
+            console.log(error);
+        });
+
+        /*
         this.setState({
             perimetro: (2 * Math.PI * this.state.radio).toFixed(2),
             area: (Math.PI * (this.state.radio ** 2)).toFixed(2)
         })
+        */
     }
 
     onChange = (e) => {

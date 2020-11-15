@@ -1,27 +1,52 @@
 import React, { Component } from 'react';
 import "../../App.css";
 
-class Square extends Component {
+import axios from "axios";
+
+class Triangle extends Component {
     state = {
         perimetro: "",
         area: "",
         a: "",
-        b: ""
+        b: "",
+        c: ""
     }
 
     onSubmit = (e) => {
         e.preventDefault();
 
+        axios.post('http://localhost:5000/triangles', {
+            a: this.state.a,
+            b: this.state.b,
+            c: this.state.c
+        }).then((res) => {
+            this.setState({
+                perimetro: res.data.perimeter,
+                area: res.data.area
+            })
+        }, (error) => {
+            console.log(error);
+        });
+
+        /*
+        let a = this.state.a;
+        let b = this.state.b;
+        let c = this.state.c;
+
+        let s = (a + b + c) / 2;
+        let area = Math.sqrt((s * (s - a) * (s - b) * (s - c))).toFixed(2);
+
         this.setState({
-            perimetro: ((this.state.a * 2) + (this.state.b * 2)).toFixed(2),
-            area: (this.state.a * this.state.b).toFixed(2)
-        })
+            perimetro: (a + b + c).toFixed(2),
+            area: !isNaN(area) ? area : (0).toFixed(2)
+        }, () => console.log(isNaN(area)))
+        */
     }
 
     onChange = (e) => {
         let targetValue = e.target.value
         this.setState({
-            [e.target.name]: targetValue,
+            [e.target.name]: !isNaN(targetValue) ? parseFloat(targetValue) : 0,
             perimetro: "",
             area: ""
         })
@@ -31,19 +56,24 @@ class Square extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="shape-info">
-                    <h2>Square</h2>
-                    <img height="100px" width="100px" src="square.png"></img>
+                    <h2>Triangle</h2>
+                    <img height="100px" width="100px" src="triangle.png"></img>
                 </div>
 
                 <div className="txt">Ingrese los siguientes parametros:</div>
-                <div className="two">
-                    <div className="item-two">
+
+                <div className="three">
+                    <div className="item-three">
                         <p className="label-2">a*</p>
                         <input className="wide-item" type="number" id="a" name="a" onChange={this.onChange} value={this.state.a} required></input>
                     </div>
-                    <div className="item-two">
+                    <div className="item-three">
                         <p className="label-2">b*</p>
                         <input className="wide-item" type="number" id="b" name="b" onChange={this.onChange} value={this.state.b} required></input>
+                    </div>
+                    <div className="item-three">
+                        <p className="label-2">c*</p>
+                        <input className="wide-item" type="number" id="c" name="c" onChange={this.onChange} value={this.state.c} required></input>
                     </div>
                 </div>
 
@@ -61,7 +91,6 @@ class Square extends Component {
                         <p className="label">Área</p>
                         <input className="wide-item" type="number" id="area" name="area" value={this.state.area} readOnly></input>
                     </div>
-
                 </div>
             </form>
         )
@@ -69,4 +98,4 @@ class Square extends Component {
 
 }
 
-export default Square;
+export default Triangle;
