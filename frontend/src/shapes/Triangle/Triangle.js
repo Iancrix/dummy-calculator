@@ -15,7 +15,7 @@ class Triangle extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://40.74.251.65:5000/triangles', {
+        axios.post('http://192.168.2.15:5000/triangles', {
             a: this.state.a,
             b: this.state.b,
             c: this.state.c
